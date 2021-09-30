@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>测试图片插入</title>
-    <url>/2021/09/29/first/</url>
-    <content><![CDATA[<p>hello wolrd!</p>
-<p><img src="/2021/09/29/first/Johnny.gif"></p>
-]]></content>
-  </entry>
-  <entry>
     <title>Hello World</title>
     <url>/2021/09/28/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -23,6 +16,23 @@
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>测试图片插入</title>
+    <url>/2021/09/29/first/</url>
+    <content><![CDATA[<p>hello wolrd!</p>
+<p><img src="/2021/09/29/first/Johnny.gif"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2021/09/29/%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p>java基本类型：byte 8位，short 16位， int 32位，long 64位，float 32位，double 64位，boolean只有true和false，char 16位</p>
+<p>继承 可以单继承以及多重继承，但是无法多继承</p>
+<p>hashmap的工作原理 </p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">helloworld</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">        System.out.<span class="title">println</span><span class="params">(<span class="string">&quot;hello world&quot;</span>)</span></span></span><br><span class="line"><span class="function">&#125;</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> class dog</span>&#123;</span><br><span class="line">    String breed;</span><br><span class="line">    <span class="keyword">int</span> size;</span><br><span class="line">    String colour;</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">sleep</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">name</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">&#125;    </span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestArray</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">man</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> size = <span class="number">10</span>;</span><br><span class="line">        <span class="keyword">double</span>[] mylist = <span class="keyword">new</span> <span class="keyword">double</span>[size];</span><br><span class="line">        mylist[<span class="number">0</span>] = <span class="number">5.6</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 ]]></content>
   </entry>
 </search>
