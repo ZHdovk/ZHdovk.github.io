@@ -10,6 +10,8 @@
     <title>搭建hexo博客</title>
     <url>/posts/undefined.html</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>​    hexo博客真的蛮好搭建的，接下来回忆下搭建的具体步骤，涉及的命令cmd以及gat bash都可以执行</p>
+<span id="more"></span>
+
 <h1 id="1-准备工作"><a href="#1-准备工作" class="headerlink" title="1 准备工作"></a>1 准备工作</h1><h2 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h2><ul>
 <li><a href="https://nodejs.org/en/">node官网下载</a></li>
 <li>下载安装即可</li>
@@ -57,7 +59,7 @@
 </li>
 <li><p>在你的github的设置中找到SSH and GPG kyes，选择New SSH key，把刚才复制的内容粘贴到里面<img src="/posts/undefined/key.png"></p>
 </li>
-<li><p>输入 ssh -T <a href="mailto:&#103;&#105;&#116;&#64;&#x67;&#x69;&#x74;&#104;&#117;&#x62;&#46;&#x63;&#111;&#x6d;">&#103;&#105;&#116;&#64;&#x67;&#x69;&#x74;&#104;&#117;&#x62;&#46;&#x63;&#111;&#x6d;</a> 进行验证，出现以下结果成功，第一次会让你输入yes</p>
+<li><p>输入 ssh -T <a href="mailto:&#x67;&#x69;&#x74;&#64;&#x67;&#105;&#x74;&#x68;&#117;&#x62;&#46;&#x63;&#111;&#x6d;">&#x67;&#x69;&#x74;&#64;&#x67;&#105;&#x74;&#x68;&#117;&#x62;&#46;&#x63;&#111;&#x6d;</a> 进行验证，出现以下结果成功，第一次会让你输入yes</p>
 <p>Hi ZHdovk! You’ve successfully authenticated, but GitHub does not provide shell access</p>
 </li>
 </ul>
@@ -68,7 +70,8 @@
 </ul>
 ]]></content>
       <tags>
-        <tag>hexo，学习</tag>
+        <tag>hexo</tag>
+        <tag>学习</tag>
       </tags>
   </entry>
 </search>
