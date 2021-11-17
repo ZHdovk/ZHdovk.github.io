@@ -98,7 +98,7 @@
     <url>/posts/751.html</url>
     <content><![CDATA[<h3 id="编辑素材以及tilemap，记得Apply！！！"><a href="#编辑素材以及tilemap，记得Apply！！！" class="headerlink" title="编辑素材以及tilemap，记得Apply！！！"></a>编辑素材以及tilemap，记得Apply！！！</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m<span class="string">&quot;第一次&quot;</span></span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
 
-
+<span id="more"></span>
 
 <p>很不幸第一步就遇到了警告，在我导入素材后就出现了如下图的问题，将导入的素材里的scenes文件夹删除解决</p>
 <p><img src="/posts/751/fox1.png"></p>
@@ -120,6 +120,6 @@
 
 
 <h3 id="待机动画"><a href="#待机动画" class="headerlink" title="待机动画"></a>待机动画</h3><p>将素材中的idle动画素材拖入player的Animation界面，创建idle.anim文件为其添加动画，可以通过改变Samples或者拉动循环时间找到合适的动画效果，切记之前将素材的pixel per unit修改为16并且应用，之后添加所有素材都要有这一步</p>
-]]></content>
+<h3 id="镜头追踪"><a href="#镜头追踪" class="headerlink" title="镜头追踪"></a>镜头追踪</h3>]]></content>
   </entry>
 </search>
