@@ -1,6 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>3D项目</title>
+    <url>/posts/c293.html</url>
+    <content><![CDATA[<h2 id="3D项目"><a href="#3D项目" class="headerlink" title="3D项目"></a>3D项目</h2><p>创建3D项目，下载URP渲染管线，之后再edit下的Rider Pipline中将整个项目中现有的素材升级到通用渲染管线。之后素材就可正常显示。</p>
+<p>通用渲染管线 (Universal Render Pipeline) 是由 Unity 制作的预构建可编程渲染管线。可让您在移动平台、高端游戏主机和 PC 等各种平台上快速轻松地创建优化的图形。</p>
+<p>顶点自动吸附：按住V键，然后会有个正方形框框出现，然后鼠标左键也一直按住，这时候鼠标在挪动就会自动吸附。</p>
+<p>调整摄像机可以先将scene的视角调到合适的位置，通过Ctrl+shift+f将摄像机固定到此处。</p>
+<p><img src="/posts/undefined/image-20211229153632732.png" alt="image-20211229153632732">这里可以调整环境光照，阴影等相关事项。</p>
+]]></content>
+      <tags>
+        <tag>unity</tag>
+        <tag>学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>FoxGame笔记</title>
+    <url>/posts/751.html</url>
+    <content><![CDATA[<h3 id="编辑素材以及tilemap，记得Apply！！！"><a href="#编辑素材以及tilemap，记得Apply！！！" class="headerlink" title="编辑素材以及tilemap，记得Apply！！！"></a>编辑素材以及tilemap，记得Apply！！！</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m<span class="string">&quot;第一次&quot;</span></span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<p>很不幸第一步就遇到了警告，在我导入素材后就出现了如下图的问题，将导入的素材里的scenes文件夹删除解决</p>
+<p><img src="/posts/751/fox1.png"></p>
+<p>对于2d游戏而言，tilemap，即网格可以更好的规划像素画面，在这上面相当于画画的来制作游戏场景，windows-&gt;2d-&gt;tilemap。会出现对应的窗口来方便管理以后的素材。</p>
+<p>像素素材默认pixels per unit的值为100，我理解：为单位像素数，如果这个值越大那他相当于比例尺很大，原本的素材就看起来很小，所以按照麦扣老师修改为16。</p>
+<p>切分素材：选中目标素材将pixel per unit也修改为16，保持一致。选择该素材inspector窗口的Sprite editor来切分素材，这是slice下的，小窗的type里可以选择自动切分和自定义，这里选择自定义，将像素的尺寸改成之前一致，16px<img src="/posts/751/fox2.png"></p>
+<p>然后将素材拖入tile面板，这里看到素材成功切分<img src="/posts/751/fox3.png"></p>
+<h3 id="图层，角色，刚体与碰撞体"><a href="#图层，角色，刚体与碰撞体" class="headerlink" title="图层，角色，刚体与碰撞体"></a>图层，角色，刚体与碰撞体</h3><p>layer即为图层，设置每个gameobject的layer属性来有序显示画面，新建了BackGround与FrontGround，将蓝天与场景设置为BackGround，其中场景的order in layer是1这样保证场景不会被蓝天覆盖，如下图<img src="/posts/751/fox4.png"></p>
+<p>素材中有多个角色素材，先添加基础的idle，可以直接将素材拖入场景（记得设置图层），也可以在hierarchy窗口新建2d object-&gt;sprite，命名为player，将角色素材拖入这里<img src="/posts/751/fox5.png"></p>
+<p>为角色刚体（RIgibody2D）与碰撞体（Box Collider 2D）在add component处添加即可，也为场景添加碰撞体（Tilemap Collider 2D ），可以用eidt collider编辑角色刚体的范围。</p>
+<h3 id="角色移动"><a href="#角色移动" class="headerlink" title="角色移动"></a>角色移动</h3><p>edit-&gt;project setting-&gt;input可以设置常用按键。记得将在player的Inspector界面将rb连接上之前添加的rigidbody2d，直接拖动即可</p>
+<p>添加人物脚本。增加左右移动，”Horizontal”的值只有-1，0，1为左，静止，右。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void MoveMent()</span><br><span class="line">&#123;</span><br><span class="line">    float horizontalMove;</span><br><span class="line">    horizontalMove = input.GetAxis(&quot;Horizontal&quot;);</span><br><span class="line">    if(horizontalMove != 0)</span><br><span class="line">    &#123;</span><br><span class="line">        rb.velocity = new Vector2(horizontalMove*speed,rb.velocity.y);</span><br><span class="line">        //rb是开始定义的rigidbody2d用来控制角色，之后再updtae调用该函数即可。</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接下来可以运行游戏但是会出现小狐狸”乱飘“的情况，修改即可<img src="/posts/751/fox6.png"></p>
+<h3 id="角色面向与跳跃"><a href="#角色面向与跳跃" class="headerlink" title="角色面向与跳跃"></a>角色面向与跳跃</h3><p>面向原理是Transform里面的Scale的x值为-1时朝左，1时朝右，相当于控制角色图像的反转，所以我们来通过A/D的输入来改变Scale的值。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//在MoveMent中添加代码</span><br><span class="line">float facedircetion = Input.GetAxisRaw(&quot;Horizontal&quot;);//getaxisraw可以直接获得-1，0，1这其中的值</span><br><span class="line">if(facedircetion != 0)</span><br><span class="line">&#123;</span><br><span class="line">    transform.localScale = new Vector3(facedircetion,1,1); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="待机动画"><a href="#待机动画" class="headerlink" title="待机动画"></a>待机动画</h3><p>将素材中的idle动画素材拖入player的Animation界面，创建idle.anim文件为其添加动画，可以通过改变Samples或者拉动循环时间找到合适的动画效果，切记之前将素材的pixel per unit修改为16并且应用，之后添加所有素材都要有这一步</p>
+<h3 id="错误及bug"><a href="#错误及bug" class="headerlink" title="错误及bug"></a>错误及bug</h3><p>模型卡顿，蹲下仍可跳跃</p>
+]]></content>
+  </entry>
+  <entry>
     <title>Unity笔记01</title>
     <url>/posts/undefined.html</url>
     <content><![CDATA[<p>​    10.15解决bug</p>
@@ -78,7 +122,7 @@
 </li>
 <li><p>在你的github的设置中找到SSH and GPG kyes，选择New SSH key，把刚才复制的内容粘贴到里面<img src="/posts/undefined/key.png"></p>
 </li>
-<li><p>输入 ssh -T <a href="mailto:&#x67;&#105;&#x74;&#x40;&#x67;&#105;&#x74;&#104;&#117;&#x62;&#46;&#99;&#x6f;&#109;">&#x67;&#105;&#x74;&#x40;&#x67;&#105;&#x74;&#104;&#117;&#x62;&#46;&#99;&#x6f;&#109;</a> 进行验证，出现以下结果成功，第一次会让你输入yes</p>
+<li><p>输入 ssh -T <a href="mailto:&#x67;&#x69;&#116;&#64;&#103;&#x69;&#x74;&#x68;&#x75;&#98;&#46;&#99;&#111;&#x6d;">&#x67;&#x69;&#116;&#64;&#103;&#x69;&#x74;&#x68;&#x75;&#98;&#46;&#99;&#111;&#x6d;</a> 进行验证，出现以下结果成功，第一次会让你输入yes</p>
 <p>Hi ZHdovk! You’ve successfully authenticated, but GitHub does not provide shell access</p>
 </li>
 </ul>
@@ -92,34 +136,5 @@
         <tag>学习</tag>
         <tag>hexo</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>FoxGame笔记</title>
-    <url>/posts/751.html</url>
-    <content><![CDATA[<h3 id="编辑素材以及tilemap，记得Apply！！！"><a href="#编辑素材以及tilemap，记得Apply！！！" class="headerlink" title="编辑素材以及tilemap，记得Apply！！！"></a>编辑素材以及tilemap，记得Apply！！！</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m<span class="string">&quot;第一次&quot;</span></span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
-
-<span id="more"></span>
-
-<p>很不幸第一步就遇到了警告，在我导入素材后就出现了如下图的问题，将导入的素材里的scenes文件夹删除解决</p>
-<p><img src="/posts/751/fox1.png"></p>
-<p>对于2d游戏而言，tilemap，即网格可以更好的规划像素画面，在这上面相当于画画的来制作游戏场景，windows-&gt;2d-&gt;tilemap。会出现对应的窗口来方便管理以后的素材。</p>
-<p>像素素材默认pixels per unit的值为100，我理解：为单位像素数，如果这个值越大那他相当于比例尺很大，原本的素材就看起来很小，所以按照麦扣老师修改为16。</p>
-<p>切分素材：选中目标素材将pixel per unit也修改为16，保持一致。选择该素材inspector窗口的Sprite editor来切分素材，这是slice下的，小窗的type里可以选择自动切分和自定义，这里选择自定义，将像素的尺寸改成之前一致，16px<img src="/posts/751/fox2.png"></p>
-<p>然后将素材拖入tile面板，这里看到素材成功切分<img src="/posts/751/fox3.png"></p>
-<h3 id="图层，角色，刚体与碰撞体"><a href="#图层，角色，刚体与碰撞体" class="headerlink" title="图层，角色，刚体与碰撞体"></a>图层，角色，刚体与碰撞体</h3><p>layer即为图层，设置每个gameobject的layer属性来有序显示画面，新建了BackGround与FrontGround，将蓝天与场景设置为BackGround，其中场景的order in layer是1这样保证场景不会被蓝天覆盖，如下图<img src="/posts/751/fox4.png"></p>
-<p>素材中有多个角色素材，先添加基础的idle，可以直接将素材拖入场景（记得设置图层），也可以在hierarchy窗口新建2d object-&gt;sprite，命名为player，将角色素材拖入这里<img src="/posts/751/fox5.png"></p>
-<p>为角色刚体（RIgibody2D）与碰撞体（Box Collider 2D）在add component处添加即可，也为场景添加碰撞体（Tilemap Collider 2D ），可以用eidt collider编辑角色刚体的范围。</p>
-<h3 id="角色移动"><a href="#角色移动" class="headerlink" title="角色移动"></a>角色移动</h3><p>edit-&gt;project setting-&gt;input可以设置常用按键。记得将在player的Inspector界面将rb连接上之前添加的rigidbody2d，直接拖动即可</p>
-<p>添加人物脚本。增加左右移动，”Horizontal”的值只有-1，0，1为左，静止，右。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void MoveMent()</span><br><span class="line">&#123;</span><br><span class="line">    float horizontalMove;</span><br><span class="line">    horizontalMove = input.GetAxis(&quot;Horizontal&quot;);</span><br><span class="line">    if(horizontalMove != 0)</span><br><span class="line">    &#123;</span><br><span class="line">        rb.velocity = new Vector2(horizontalMove*speed,rb.velocity.y);</span><br><span class="line">        //rb是开始定义的rigidbody2d用来控制角色，之后再updtae调用该函数即可。</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>接下来可以运行游戏但是会出现小狐狸”乱飘“的情况，修改即可<img src="/posts/751/fox6.png"></p>
-<h3 id="角色面向与跳跃"><a href="#角色面向与跳跃" class="headerlink" title="角色面向与跳跃"></a>角色面向与跳跃</h3><p>面向原理是Transform里面的Scale的x值为-1时朝左，1时朝右，相当于控制角色图像的反转，所以我们来通过A/D的输入来改变Scale的值。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//在MoveMent中添加代码</span><br><span class="line">float facedircetion = Input.GetAxisRaw(&quot;Horizontal&quot;);//getaxisraw可以直接获得-1，0，1这其中的值</span><br><span class="line">if(facedircetion != 0)</span><br><span class="line">&#123;</span><br><span class="line">    transform.localScale = new Vector3(facedircetion,1,1); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="待机动画"><a href="#待机动画" class="headerlink" title="待机动画"></a>待机动画</h3><p>将素材中的idle动画素材拖入player的Animation界面，创建idle.anim文件为其添加动画，可以通过改变Samples或者拉动循环时间找到合适的动画效果，切记之前将素材的pixel per unit修改为16并且应用，之后添加所有素材都要有这一步</p>
-<h3 id="镜头追踪"><a href="#镜头追踪" class="headerlink" title="镜头追踪"></a>镜头追踪</h3>]]></content>
   </entry>
 </search>
