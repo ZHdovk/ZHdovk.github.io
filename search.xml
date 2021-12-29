@@ -1,22 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>3D项目</title>
-    <url>/posts/c293.html</url>
-    <content><![CDATA[<h2 id="3D项目"><a href="#3D项目" class="headerlink" title="3D项目"></a>3D项目</h2><p>创建3D项目，下载URP渲染管线，之后再edit下的Rider Pipline中将整个项目中现有的素材升级到通用渲染管线。之后素材就可正常显示。</p>
-<span id="more"></span>
-
-<p>通用渲染管线 (Universal Render Pipeline) 是由 Unity 制作的预构建可编程渲染管线。可让您在移动平台、高端游戏主机和 PC 等各种平台上快速轻松地创建优化的图形。</p>
-<p>顶点自动吸附：按住V键，然后会有个正方形框框出现，然后鼠标左键也一直按住，这时候鼠标在挪动就会自动吸附。</p>
-<p><img src="/posts/c293/i1.png">调整摄像机可以先将scene的视角调到合适的位置，通过Ctrl+shift+f将摄像机固定到此处。</p>
-<p>这里可以调整环境光照，阴影等相关事项。</p>
-]]></content>
-      <tags>
-        <tag>unity</tag>
-        <tag>学习</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>FoxGame笔记</title>
     <url>/posts/751.html</url>
     <content><![CDATA[<h3 id="编辑素材以及tilemap，记得Apply！！！"><a href="#编辑素材以及tilemap，记得Apply！！！" class="headerlink" title="编辑素材以及tilemap，记得Apply！！！"></a>编辑素材以及tilemap，记得Apply！！！</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m<span class="string">&quot;第一次&quot;</span></span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
@@ -45,6 +29,10 @@
 <h3 id="待机动画"><a href="#待机动画" class="headerlink" title="待机动画"></a>待机动画</h3><p>将素材中的idle动画素材拖入player的Animation界面，创建idle.anim文件为其添加动画，可以通过改变Samples或者拉动循环时间找到合适的动画效果，切记之前将素材的pixel per unit修改为16并且应用，之后添加所有素材都要有这一步</p>
 <h3 id="错误及bug"><a href="#错误及bug" class="headerlink" title="错误及bug"></a>错误及bug</h3><p>模型卡顿，蹲下仍可跳跃</p>
 ]]></content>
+      <tags>
+        <tag>unity</tag>
+        <tag>学习</tag>
+      </tags>
   </entry>
   <entry>
     <title>Unity笔记01</title>
@@ -57,18 +45,28 @@
       </tags>
   </entry>
   <entry>
+    <title>3D项目</title>
+    <url>/posts/c293.html</url>
+    <content><![CDATA[<h2 id="3D项目"><a href="#3D项目" class="headerlink" title="3D项目"></a>3D项目</h2><p>创建3D项目，下载URP渲染管线，之后再edit下的Rider Pipline中将整个项目中现有的素材升级到通用渲染管线。之后素材就可正常显示。</p>
+<span id="more"></span>
+
+<p>通用渲染管线 (Universal Render Pipeline) 是由 Unity 制作的预构建可编程渲染管线。可让您在移动平台、高端游戏主机和 PC 等各种平台上快速轻松地创建优化的图形。</p>
+<p>顶点自动吸附：按住V键，然后会有个正方形框框出现，然后鼠标左键也一直按住，这时候鼠标在挪动就会自动吸附。</p>
+<p><img src="/i1.png">调整摄像机可以先将scene的视角调到合适的位置，通过Ctrl+shift+f将摄像机固定到此处。</p>
+<p>这里可以调整环境光照，阴影等相关事项。</p>
+]]></content>
+      <tags>
+        <tag>unity</tag>
+        <tag>学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>dq11s</title>
     <url>/posts/4e6f.html</url>
     <content><![CDATA[<pre><code># 童话般，纯粹的冒险
 </code></pre>
 <p>​        温暖，接地气，角色塑造，将所谓王道俗套的故事依然讲的十分生动，可以使玩家沉迷，大人和小孩都适合的游戏，细节，鸟山明有趣的画风，圆了童年时单纯的勇者梦</p>
 <p>花了近80个小时通关了dq11s，体验上来说是一款十分舒服的jrpg作品，</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>Hello world</title>
-    <url>/posts/22049.html</url>
-    <content><![CDATA[<p><img src="/posts/22049/Johnny.gif"></p>
 ]]></content>
   </entry>
   <entry>
@@ -124,7 +122,7 @@
 </li>
 <li><p>在你的github的设置中找到SSH and GPG kyes，选择New SSH key，把刚才复制的内容粘贴到里面<img src="/posts/undefined/key.png"></p>
 </li>
-<li><p>输入 ssh -T <a href="mailto:&#103;&#x69;&#x74;&#x40;&#103;&#x69;&#116;&#104;&#117;&#x62;&#46;&#99;&#111;&#x6d;">&#103;&#x69;&#x74;&#x40;&#103;&#x69;&#116;&#104;&#117;&#x62;&#46;&#99;&#111;&#x6d;</a> 进行验证，出现以下结果成功，第一次会让你输入yes</p>
+<li><p>输入 ssh -T <a href="mailto:&#103;&#105;&#116;&#x40;&#x67;&#105;&#116;&#104;&#117;&#x62;&#46;&#99;&#x6f;&#x6d;">&#103;&#105;&#116;&#x40;&#x67;&#105;&#116;&#104;&#117;&#x62;&#46;&#99;&#x6f;&#x6d;</a> 进行验证，出现以下结果成功，第一次会让你输入yes</p>
 <p>Hi ZHdovk! You’ve successfully authenticated, but GitHub does not provide shell access</p>
 </li>
 </ul>
@@ -138,5 +136,11 @@
         <tag>学习</tag>
         <tag>hexo</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Hello world</title>
+    <url>/posts/22049.html</url>
+    <content><![CDATA[<p><img src="/posts/22049/Johnny.gif"></p>
+]]></content>
   </entry>
 </search>
