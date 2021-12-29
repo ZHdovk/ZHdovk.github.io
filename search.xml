@@ -4,10 +4,12 @@
     <title>3D项目</title>
     <url>/posts/c293.html</url>
     <content><![CDATA[<h2 id="3D项目"><a href="#3D项目" class="headerlink" title="3D项目"></a>3D项目</h2><p>创建3D项目，下载URP渲染管线，之后再edit下的Rider Pipline中将整个项目中现有的素材升级到通用渲染管线。之后素材就可正常显示。</p>
+<span id="more"></span>
+
 <p>通用渲染管线 (Universal Render Pipeline) 是由 Unity 制作的预构建可编程渲染管线。可让您在移动平台、高端游戏主机和 PC 等各种平台上快速轻松地创建优化的图形。</p>
 <p>顶点自动吸附：按住V键，然后会有个正方形框框出现，然后鼠标左键也一直按住，这时候鼠标在挪动就会自动吸附。</p>
-<p>调整摄像机可以先将scene的视角调到合适的位置，通过Ctrl+shift+f将摄像机固定到此处。</p>
-<p><img src="/posts/undefined/image-20211229153632732.png" alt="image-20211229153632732">这里可以调整环境光照，阴影等相关事项。</p>
+<p><img src="/posts/c293/i1.png">调整摄像机可以先将scene的视角调到合适的位置，通过Ctrl+shift+f将摄像机固定到此处。</p>
+<p>这里可以调整环境光照，阴影等相关事项。</p>
 ]]></content>
       <tags>
         <tag>unity</tag>
@@ -122,7 +124,7 @@
 </li>
 <li><p>在你的github的设置中找到SSH and GPG kyes，选择New SSH key，把刚才复制的内容粘贴到里面<img src="/posts/undefined/key.png"></p>
 </li>
-<li><p>输入 ssh -T <a href="mailto:&#x67;&#x69;&#116;&#64;&#103;&#x69;&#x74;&#x68;&#x75;&#98;&#46;&#99;&#111;&#x6d;">&#x67;&#x69;&#116;&#64;&#103;&#x69;&#x74;&#x68;&#x75;&#98;&#46;&#99;&#111;&#x6d;</a> 进行验证，出现以下结果成功，第一次会让你输入yes</p>
+<li><p>输入 ssh -T <a href="mailto:&#103;&#x69;&#x74;&#x40;&#103;&#x69;&#116;&#104;&#117;&#x62;&#46;&#99;&#111;&#x6d;">&#103;&#x69;&#x74;&#x40;&#103;&#x69;&#116;&#104;&#117;&#x62;&#46;&#99;&#111;&#x6d;</a> 进行验证，出现以下结果成功，第一次会让你输入yes</p>
 <p>Hi ZHdovk! You’ve successfully authenticated, but GitHub does not provide shell access</p>
 </li>
 </ul>
