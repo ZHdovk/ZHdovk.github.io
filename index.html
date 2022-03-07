@@ -159,7 +159,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zhdovk.github.io/posts/c293.html">
+    <link itemprop="mainEntityOfPage" href="https://zhdovk.github.io/posts/0.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/alice.png">
@@ -173,7 +173,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/posts/c293.html" class="post-title-link" itemprop="url">3D项目</a>
+            <a href="/posts/0.html" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta">
@@ -184,7 +184,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-12-29 16:00:00 / 修改时间：16:12:56" itemprop="dateCreated datePublished" datetime="2021-12-29T16:00:00+08:00">2021-12-29</time>
+              <time title="创建时间：2022-03-07 22:17:42 / 修改时间：22:19:11" itemprop="dateCreated datePublished" datetime="2022-03-07T22:17:42+08:00">2022-03-07</time>
             </span>
 
           
@@ -198,15 +198,74 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="3D项目"><a href="#3D项目" class="headerlink" title="3D项目"></a>3D项目</h2><p>创建3D项目，下载URP渲染管线，之后再edit下的Rider Pipline中将整个项目中现有的素材升级到通用渲染管线。之后素材就可正常显示。</p>
+          <h1 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h1><h1 id="Java-SE"><a href="#Java-SE" class="headerlink" title="Java SE"></a>Java SE</h1><h2 id="面向对象的特性"><a href="#面向对象的特性" class="headerlink" title="面向对象的特性"></a>面向对象的特性</h2><p>面向对象有三大特性：封装、继承、多态。</p>
+<p>转自网络大佬的总结
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/posts/c293.html#more" rel="contents">
+              <a class="btn" href="/posts/0.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
           <!--/noindex-->
         
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zhdovk.github.io/posts/1a0c.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/alice.png">
+      <meta itemprop="name" content="烟却">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="日常">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/1a0c.html" class="post-title-link" itemprop="url">RPG3D</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-01-14 09:55:52 / 修改时间：11:47:44" itemprop="dateCreated datePublished" datetime="2022-01-14T09:55:52+08:00">2022-01-14</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
       
     </div>
 
@@ -396,7 +455,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-15 17:49:52" itemprop="dateModified" datetime="2021-10-15T17:49:52+08:00">2021-10-15</time>
+                <time title="修改时间：2022-02-16 20:14:31" itemprop="dateModified" datetime="2022-02-16T20:14:31+08:00">2022-02-16</time>
               </span>
 
           
@@ -412,6 +471,18 @@
       
           <p>​    10.15解决bug</p>
 <p>​    关于slime无法执行攻击动画一直鬼畜，即使玩家离开也不会再进行下一步的动作</p>
+<p>ctrl+k+c 快速注释</p>
+<p>ctrl+k+u 取消注释</p>
+<p>空甜品为了实现填充效果，甜品从上往下掉</p>
+<p>核心掉落填充算法：从下往上遍历，其中最下面一层不用判断因为他们无法移动，在最上面有一行隐藏甜品行生成新的甜品，将整个填充算法认为是一个大步骤，将其分为几个小步骤具体实现</p>
+<p>斜向填充算法，每个甜品遍历自己左下，正下，右下，若为空则检测该位置上方是否为障碍物是则填充。</p>
+<p>填充协程化：为其增加更好的视觉体验，让每个甜品都能慢慢落下来</p>
+<p>unpack prefab可以断开与预制体的连接防止更改预制体</p>
+<p>消除声音之后再加，时间跳动动画之后再做</p>
+<p>点击按钮失效最有可能是eventsystem被删了</p>
+<p>关卡选择脚本也类似，用button添加切换场景的事件即可，主界面就一个脚本负责几个按钮切换关卡</p>
+<p>实现步数模式，将时间ui去掉，步数递减为关卡结束的标志</p>
+<p>fish：当元素被消除后需要填充为此我们创建空白元素</p>
 
       
     </div>
@@ -626,7 +697,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -672,7 +743,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

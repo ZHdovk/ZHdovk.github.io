@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
+  <link rel="mask-icon" href="/images/favicon.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zhdovk.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="面试题Java SE面向对象的特性面向对象有三大特性：封装、继承、多态。 转自网络大佬的总结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="日常">
+<meta property="og:url" content="https://zhdovk.github.io/posts/0.html">
+<meta property="og:site_name" content="日常">
+<meta property="og:description" content="面试题Java SE面向对象的特性面向对象有三大特性：封装、继承、多态。 转自网络大佬的总结">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zhdovk.github.io/%E9%9D%A2%E8%AF%95%E9%A2%98.assets/20191202094852303.png">
+<meta property="og:image" content="https://zhdovk.github.io/%E9%9D%A2%E8%AF%95%E9%A2%98.assets/image-20210813201303513.png">
+<meta property="og:image" content="https://zhdovk.github.io/%E9%9D%A2%E8%AF%95%E9%A2%98.assets/image-20210813202450156.png">
+<meta property="og:image" content="https://zhdovk.github.io/%E9%9D%A2%E8%AF%95%E9%A2%98.assets/image-20210813203233914.png">
+<meta property="og:image" content="https://zhdovk.github.io/%E9%9D%A2%E8%AF%95%E9%A2%98.assets/image-20210813204034750.png">
+<meta property="og:image" content="https://zhdovk.github.io/%E9%9D%A2%E8%AF%95%E9%A2%98.assets/image-20210804141443401.png">
+<meta property="og:image" content="https://zhdovk.github.io/%E9%9D%A2%E8%AF%95%E9%A2%98.assets/image-20210804141722851.png">
+<meta property="article:published_time" content="2022-03-07T14:17:42.003Z">
+<meta property="article:modified_time" content="2022-03-07T14:19:11.574Z">
+<meta property="article:author" content="烟却">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zhdovk.github.io/%E9%9D%A2%E8%AF%95%E9%A2%98.assets/20191202094852303.png">
+
+<link rel="canonical" href="https://zhdovk.github.io/posts/0.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title> | 日常</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">日常</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">我们生活的每个日常，都是连续发生的奇迹</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zhdovk.github.io/posts/0.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/alice.png">
+      <meta itemprop="name" content="烟却">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="日常">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-03-07 22:17:42 / 修改时间：22:19:11" itemprop="dateCreated datePublished" datetime="2022-03-07T22:17:42+08:00">2022-03-07</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h1><h1 id="Java-SE"><a href="#Java-SE" class="headerlink" title="Java SE"></a>Java SE</h1><h2 id="面向对象的特性"><a href="#面向对象的特性" class="headerlink" title="面向对象的特性"></a>面向对象的特性</h2><p>面向对象有三大特性：封装、继承、多态。</p>
+<p>转自网络大佬的总结<span id="more"></span></p>
+<ul>
+<li><p><strong>封装</strong>：明确表示允许外部允许访问的方法和属性，外部调用时无需关心内部的实现细节。</p>
+</li>
+<li><p><strong>继承</strong>：子类共有的特征可以提取到父类中，然后子类继承父类，并根据自身的需求进行扩展。</p>
+</li>
+<li><p><strong>多态</strong>：</p>
+<p>前提：继承、方法重写、父类引用指向子类对象。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">父类 a = <span class="keyword">new</span> 子类();</span><br><span class="line"><span class="comment">/* 这个方法必须是父子类都有的方法 */</span></span><br><span class="line">a.方法();</span><br></pre></td></tr></table></figure>
+
+<p>口诀：<strong>编译看左边，运行看右边</strong>。即编译的时候是父类类型，运行的时候是子类类型。</p>
+</li>
+</ul>
+<h2 id="和equals"><a href="#和equals" class="headerlink" title="==和equals"></a>==和equals</h2><p>==：简单类型则比较值，引用类型比较的是地址。</p>
+<p>equals：默认情况下跟==一样，通常会进行重写。</p>
+<blockquote>
+<p>比如String类就对equals进行了重写，判断两个字符串内容是否相等。</p>
+</blockquote>
+<h2 id="为什么重写equals还要重写hashcode？"><a href="#为什么重写equals还要重写hashcode？" class="headerlink" title="为什么重写equals还要重写hashcode？"></a>为什么重写equals还要重写hashcode？</h2><p>object的equals默认是比较内存地址（跟双等号一样），而<strong>hashcode默认是内存地址的哈希值</strong>，如果equals重写了，他为true时两个对象的内存地址并不一定相同，这个时候，如果不重写hashcode，那么他会默认用object的hashcode方法，所以他们的hashcode值是不一样的。就导致两个对象equals相等但是hashcode不相等，这个对象应用在hashmap作为key时他们是先判断hashcode是否相等再比较equals，不相等就为不同的key，所以这样的对象不能应用在map和set里作为key。</p>
+<h2 id="final用法"><a href="#final用法" class="headerlink" title="final用法"></a>final用法</h2><p>final修饰的类不能被继承。</p>
+<p>final修饰的方法不能被重写。</p>
+<p>final修饰的属性不能被修改；如果是引用类型，则指向不能变，但指向的内容可以改变。</p>
+<h2 id="重写跟重载的区别"><a href="#重写跟重载的区别" class="headerlink" title="重写跟重载的区别"></a>重写跟重载的区别</h2><p><strong>重载</strong>：发生在同一个类中，方法名必须相同，参数类型、个数、顺序可以不同。如果仅仅是返回值或修饰符不同的话编译器会报错。</p>
+<p><strong>重写</strong>：发生在父子类中，方法名、参数列表必须相同。如果父类方法用private修饰则不能重写。</p>
+<blockquote>
+<p>父类的静态方法子类不能重写，如果子类含有跟父类相同的静态方法时，我们称之为<strong>隐藏</strong>。</p>
+</blockquote>
+<h2 id="String、StringBuffer跟StringBuilder"><a href="#String、StringBuffer跟StringBuilder" class="headerlink" title="String、StringBuffer跟StringBuilder"></a>String、StringBuffer跟StringBuilder</h2><p><strong>String</strong>是final修饰的，每次操作都会产生新String对象。如果需要不产生新对象则需要使用反射技术进行修改。</p>
+<p>StringBuffer跟StringBuilder都是在原对象上进行操作。StringBuffer使用synchronized修饰，是线程安全的；StringBuilder是非线程安全的。</p>
+<blockquote>
+<p>性能：StringBuilder &gt; StringBuffer &gt; String</p>
+</blockquote>
+<h2 id="对于CPU来说，数组对于链表的优势"><a href="#对于CPU来说，数组对于链表的优势" class="headerlink" title="对于CPU来说，数组对于链表的优势"></a>对于CPU来说，数组对于链表的优势</h2><p>CPU读取内存的时候会根据<strong>空间局部性原理</strong>，把一片连续的内存读取出来，然后放到缓存中。又因为数组所占用的空间是连续的，所以访问数组的时候会把数组的全部或部分元素放到缓存中，这样访问数组的速度就会很快。</p>
+<blockquote>
+<p>数组优先是行存储，因为CPU会把一行或多行的数据放到缓存中。</p>
+</blockquote>
+<h2 id="Object跟泛型的区别"><a href="#Object跟泛型的区别" class="headerlink" title="Object跟泛型的区别"></a>Object跟泛型的区别</h2><ol>
+<li>泛型不需要做强制类型转换</li>
+<li>泛型编译时更安全。如果使用Object的话，无法保证返回的类型一定是想要的类型。</li>
+</ol>
+<h2 id="排序算法"><a href="#排序算法" class="headerlink" title="排序算法"></a>排序算法</h2><blockquote>
+<p>稳定性指的是两个数的相对位置没有发生改变。比如A在B前面，排序完后A还是在B前面</p>
+</blockquote>
+<p>稳定排序：</p>
+<ul>
+<li>冒泡排序，O(n*n)</li>
+<li>插入排序，O(n*n)</li>
+<li>归并排序，O(nlgn)，需要两倍的空间</li>
+<li>桶排序，O(n)，所需空间较大</li>
+</ul>
+<p>不稳定排序：</p>
+<ul>
+<li>选择排序，O(n*n)</li>
+<li>快速排序，O(nlgn)</li>
+<li>希尔排序，O(n*n)</li>
+<li>堆排序，O(nlgn)</li>
+</ul>
+<h2 id="CAS"><a href="#CAS" class="headerlink" title="CAS"></a>CAS</h2><p>CAS（Compare and Swap），是一个乐观锁，可以在不加锁的情况下实现多线程之间的变量同步。</p>
+<p>其涉及到三个操作数：</p>
+<ol>
+<li>需要读写的内存值（当前值 或 版本号）</li>
+<li>要进行比较的值（旧值 或 版本号）</li>
+<li>写入的新值，当且仅当前面两个数相等时才把新值更新到内存值，否则重复进行比较，直到相等。</li>
+</ol>
+<h3 id="ABA问题"><a href="#ABA问题" class="headerlink" title="ABA问题"></a>ABA问题</h3><p>CAS会导致一个ABA问题：即一个线程要把一个变量的值由A改成B，在这个时候另一个线程将这个变量的值由A改成了C然后又改回A（A-&gt;C-&gt;A），接着第一个线程在CAS时发现变量值仍然是A，所以CAS成功，但实际上是不同的。</p>
+<p>如何解决？</p>
+<p>添加版本号或时间戳来标记变量，比较的时候比较 值 跟 版本号/时间戳。在java中，可以使用AtomicStampedReference来使用时间戳标记变量。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">asr.compareAndSet(<span class="number">100</span>, <span class="number">101</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Error和Exception的区别"><a href="#Error和Exception的区别" class="headerlink" title="Error和Exception的区别"></a>Error和Exception的区别</h2><p>Error指的是程序无法解决的错误，比如内存不足<strong>OutOfMemoryError</strong> </p>
+<p>Exception通常指的是代码逻辑的异常，比如下标越界<strong>OutOfIndexException</strong> </p>
+<h2 id="hashmap"><a href="#hashmap" class="headerlink" title="hashmap"></a>hashmap</h2><h3 id="重要属性"><a href="#重要属性" class="headerlink" title="重要属性"></a>重要属性</h3><p><strong>size</strong>：元素个数</p>
+<p><strong>threshold</strong>：扩容阈值，默认是0.75f。==太大会容易造成hash冲突，太小空间利用率低==。</p>
+<p><strong>TREEIFY_THRESHOLD</strong>：树化的链表长度的阈值，默认值8，根据泊松分布得到。</p>
+<p><strong>MIN_TREEIFY_CAPACITY</strong>：树化的数组的容量的阈值，默认是64</p>
+<p><strong>DEFAULT_INITIAL_CAPACITY</strong>：数组默认的初始化长度，值为16</p>
+<p><strong>Node&lt;K,V&gt;[] table</strong>：存放元素的数组，长度一定是$2^n$ </p>
+<h3 id="put操作"><a href="#put操作" class="headerlink" title="put操作"></a>put操作</h3><p>put流程图：</p>
+<p><img src="/%E9%9D%A2%E8%AF%95%E9%A2%98.assets/20191202094852303.png" alt="img"></p>
+<p>如何得到下标：<code>(n - 1) &amp; hash</code> （hash为key的hash值，&amp; 等价于取模操作%）</p>
+<p>如何计算key的hash值：<code>return (key == null) ? 0 : (h = key.hashCode()) ^ (h &gt;&gt;&gt; 16)</code> </p>
+<p>为什么要n-1然后做&amp;操作：因为数组长度是$2^n$ 一定是个偶数，减去1就是奇数，奇数用二进制表示时，<strong>最低的几位都是连续的1，可以更快的取模以及减少hash冲突</strong>。</p>
+<p>如何判断元素是否相等：（<strong>先判断hash再使用 ==或equals</strong>）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (e.hash == hash &amp;&amp;</span><br><span class="line">    ((k = e.key) == key || (key != <span class="keyword">null</span> &amp;&amp; key.equals(k))))</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>需要注意，只有数组中的元素重复时才会发送替换，其他情况直接break跳出循环。</p>
+</blockquote>
+<h3 id="扩容操作"><a href="#扩容操作" class="headerlink" title="扩容操作"></a>扩容操作</h3><p>创建一个新的数组，其<strong>容量为旧数组的两倍 <code>oldCap &lt;&lt; 1</code><strong>，并重新计算旧数组中每个结点的存储位置。结点在新数组中的位置只有两种：</strong>原下标</strong> 或 <strong>原下标+旧数组长度</strong>。</p>
+<p>因为数组长度变为原来的2倍，在二进制上就是<strong>最高位左移了一位</strong>。所以可以根据最高位来判断元素位置；==是0则下标不变，是1则下标变为原下标+旧数组长度==。</p>
+<p>因此，在扩容时，只需要判断最高位是1还是0就好了，这样可以大大提高扩容的速度。</p>
+<p>如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">    next = e.next;</span><br><span class="line">    <span class="comment">// oldCap -&gt; 10..0 </span></span><br><span class="line">    <span class="keyword">if</span> ((e.hash &amp; oldCap) == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (loTail == <span class="keyword">null</span>)</span><br><span class="line">            loHead = e;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            loTail.next = e;</span><br><span class="line">        loTail = e;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (hiTail == <span class="keyword">null</span>)</span><br><span class="line">            hiHead = e;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            hiTail.next = e;</span><br><span class="line">        hiTail = e;</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">while</span> ((e = next) != <span class="keyword">null</span>);</span><br></pre></td></tr></table></figure>
+
+<p>因为oldCap的最高位是1，后面全是0，跟原hash值做与操作时，只需看最高位的结果即可。</p>
+<hr>
+<p>实际扩容操作：先查看数组中的元素后面有没有节点，如果没有，则直接采用<code>e.hash &amp; (newCap - 1)</code> 方式确定下标。如果有，那么就遍历这个链表然后根据<code>e.hash &amp; oldCap</code> 来确定链表上节点的位置，要么在原位置要么在原下标+旧数组长度的位置。</p>
+<h3 id="1-7和1-8的区别"><a href="#1-7和1-8的区别" class="headerlink" title="1.7和1.8的区别"></a>1.7和1.8的区别</h3><p><strong>初始化时机</strong>：</p>
+<p>1.7：new的时候就初始化数组大小</p>
+<p>1.8：put的时候才检查数组是否为null，是的话才初始化数组</p>
+<hr>
+<p><strong>扩容条件</strong>：</p>
+<p>1.7：必须满足元素个数大于等于阈值且新插入的元素发送了hash冲突</p>
+<p>1.8：第一种情况，存完新值之后，判断元素个数是否大于阈值。第二种情况，链表长度大于8但是数组长度小于64。第三种：table为null，即一开始put的时候。</p>
+<hr>
+<p><strong>底层结构</strong>：</p>
+<p>1.7：只有数组加链表</p>
+<p>1.8：数组+链表或红黑树。在链表个数大于8且数组长度大于64的时候链表进化成红黑树，在链表小于6时，红黑树退化成链表。</p>
+<h2 id="ConcurrentHashMap"><a href="#ConcurrentHashMap" class="headerlink" title="ConcurrentHashMap"></a>ConcurrentHashMap</h2><blockquote>
+<p>这里介绍的ConcurrentHashMap是<strong>1.8</strong>以后的。</p>
+</blockquote>
+<h3 id="存储结构"><a href="#存储结构" class="headerlink" title="存储结构"></a>存储结构</h3><p>跟HashMap一样。只不过ConcurrentHashMap支持并发扩容，其内部通过加锁（<strong>CAS + synchronized</strong>）来保证线程安全。</p>
+<h3 id="重要属性-1"><a href="#重要属性-1" class="headerlink" title="重要属性"></a>重要属性</h3><p><strong><code>private static final int DEFAULT_CAPACITY = 16;</code></strong> 默认的数组大小，不可修改</p>
+<hr>
+<p><strong><code>private static final float LOAD_FACTOR = 0.75f;</code></strong> 负载因子，决定扩容阈值</p>
+<p>HashMap 的负载因子可以修改，但是 ConcurrentHashMap 不可以，因为它的负载因子使用 <code>final</code>关键字修饰，值是固定的 <em>0.75</em> ：</p>
+<hr>
+<p><strong><code>private static final long SIZECTL;</code></strong> </p>
+<p><code>sizeCtr</code> 即 Size Control，不同的值代表不同的含义：</p>
+<ul>
+<li><code>sizeCtl == -1</code>：表示ConcurrentHashMap正处于<strong>初始化</strong>状态</li>
+<li><code>sizeCtl == -n</code>：表示ConcurrentHashMap正处于<strong>扩容</strong>状态，有n-1个线程帮忙扩容。</li>
+<li><code>sizeCtl 为正数</code>：表示ConcurrentHashMap是正常状态，此时sizeCtl为<strong>扩容的阈值</strong>。</li>
+</ul>
+<hr>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> TREEIFY_THRESHOLD = <span class="number">8</span>;</span><br><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> MIN_TREEIFY_CAPACITY = <span class="number">64</span>;</span><br></pre></td></tr></table></figure>
+
+<p>树化的最小条件，链表大于8并且数组长度大于64。</p>
+<h3 id="Node-节点的-hash-值有几种情况？"><a href="#Node-节点的-hash-值有几种情况？" class="headerlink" title="Node 节点的 hash 值有几种情况？"></a>Node 节点的 hash 值有几种情况？</h3><p>如果 <code>Node.hash = -1</code>，表示当前节点是 <strong>FWD(ForWardingNode) <strong>节点，即</strong>正在扩容</strong>。扩容时会把头节点的hash值置为-1。</p>
+<p>如果 <code>Node.hash = -2</code>，表示当前节点为 树的根。</p>
+<p>如果 <code>Node.hash &gt; 0</code>，表示当前节点是正常的 Node 节点。</p>
+<h3 id="ConcurrentHashMap中的hash寻址算法"><a href="#ConcurrentHashMap中的hash寻址算法" class="headerlink" title="ConcurrentHashMap中的hash寻址算法"></a>ConcurrentHashMap中的hash寻址算法</h3><p><code>(h ^ (h &gt;&gt;&gt; 16)) &amp; HASH_BITS;</code> hash值 与 hash值的无符号右移16位 异或，再 与上 HASH_BITS (0x7fffffff: 二进制为31个1)</p>
+<blockquote>
+<p>为什么与上HASH_BITS？为了让得到的hash值的结果始终是一个正数</p>
+</blockquote>
+<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>首先采用CAS方式将sizeCtr置为 -1，此时其他线程进入就会调用<code>Thread.yield();</code> 释放CPU。</p>
+<p>然后进行创建数组、设置阈值等操作。初始化完成之后会将sizeCtr变成阈值。</p>
+<h3 id="插入元素"><a href="#插入元素" class="headerlink" title="插入元素"></a>插入元素</h3><p>当进行 put 操作时，流程大概可以分如下几个步骤：</p>
+<ol>
+<li><p>计算key的hash值</p>
+</li>
+<li><p>接着进入循环，首先判断数组是否为空，如果为空就<strong>初始化数组</strong>；</p>
+</li>
+<li><p>否则根据key计算下标，判断是否发生hash冲突，若没有冲突采用 <strong>CAS 方式</strong>放入元素；</p>
+</li>
+<li><p>否则继续判断 <code>数组元素的hash == -1</code>是否成立。如果成立，说明当前ConcurrentHashMap正在扩容，此时当前线程帮忙进行扩容操作；</p>
+</li>
+<li><p>以上都不符合则进入<strong>synchronized代码块</strong>（锁的是数组中的元素），然后把新的Node节点插入到链表或红黑树中；如果插入过程中有相同元素则直接返回。</p>
+</li>
+<li><p>节点插入完成之后，会判断链表长度是否超过8，如果超过8个，则会进行数组扩容，当数组容量大于64，且链表长度大于8时，链表<strong>进化成红黑树</strong>；</p>
+</li>
+<li><p>最后，增加元素个数判断<strong>是否要扩容</strong>；</p>
+</li>
+</ol>
+<h2 id="ThreadLocal"><a href="#ThreadLocal" class="headerlink" title="ThreadLocal"></a>ThreadLocal</h2><p>ThreadLocal类用来设置线程私有变量，<strong>同一线程内可以共享变量，多个线程之间相互隔离</strong>，互不影响。</p>
+<p>相当于每个线程内部都有一份对这些变量的拷贝，各个线程只可以操作本线程的ThreadLocal中的变量。典型的以空间换时间。</p>
+<h3 id="储存结构"><a href="#储存结构" class="headerlink" title="储存结构"></a>储存结构</h3><p>每个Thread中有一个ThreadLocalMap类型的属性，叫threadLocals。ThreadLocalMap是ThreadLocal的内部类。</p>
+<p>ThreadLocalMap使用Entry数组来存放元素，Entry是一个个的键值对，key为ThreadLocal对象，value为要保存的值。</p>
+<p><img src="/%E9%9D%A2%E8%AF%95%E9%A2%98.assets/image-20210813201303513.png" alt="image-20210813201303513"></p>
+<blockquote>
+<p>Entry的默认初始大小为16，扩容阈值为数组长度的0.75</p>
+</blockquote>
+<h3 id="初始化方法"><a href="#初始化方法" class="headerlink" title="初始化方法"></a>初始化方法</h3><p>ThreadLocal类的初始化方法是个空方法，只有等第一次set/get的时候才会初始化。</p>
+<p>初始化过程是调用ThreadLocalMap的构造方法 <code>new ThreadLocalMap(本线程, Value);</code></p>
+<ol>
+<li>创建Entry数组</li>
+<li>用<strong>ThreadLocal对象</strong>的下个hash值 跟 数组长度-1 做<strong>与</strong>操作，对应到数组下标，然后放入元素。</li>
+<li>设置阈值</li>
+</ol>
+<p><img src="/%E9%9D%A2%E8%AF%95%E9%A2%98.assets/image-20210813202450156.png" alt="image-20210813202450156"></p>
+<h3 id="set方法"><a href="#set方法" class="headerlink" title="set方法"></a>set方法</h3><p><strong>ThreadLocal类</strong>的set方法首先会拿出<strong>当前线程的ThreadLocalMap</strong>，然后判断是否需要初始化，不需要的话则调用ThreadLocalMap的set方法设置元素。</p>
+<p>ThreadLocalMap的set方法：</p>
+<ol>
+<li><p>ThreadLocal对象的下个hash值 跟 数组长度-1 做<strong>与</strong>操作，对应到数组下标</p>
+</li>
+<li><p>如果发送hash冲突，则使用<strong>开放地址法</strong>，下标往后移一位，如果后一位也有元素，则继续后移，直到数组的末尾，若都发现hash冲突，则下标会从0开始继续试探。一直重复，直到有空的位置后插入。（可以把数组看出循环数组）</p>
+<ul>
+<li>如果数组中存在该key，则直接替换。</li>
+<li>如果数组中存在key为null的元素，则直接替换。</li>
+</ul>
+</li>
+<li><p>添加完元素后，如果达到阈值就扩容。</p>
+</li>
+</ol>
+<p>遍历过程如下：</p>
+<p><img src="/%E9%9D%A2%E8%AF%95%E9%A2%98.assets/image-20210813203233914.png" alt="image-20210813203233914"></p>
+<h3 id="get方法"><a href="#get方法" class="headerlink" title="get方法"></a>get方法</h3><p>ThreadLocal类的get方法第一步也是获取ThreadLocalMap属性，如果为null则初始化，然后以ThreadLocal对象为key，value为null，放在数组上。</p>
+<p>否则就调用ThreadLocalMap的getEntry方法，根据key获取下标元素，然后判断该下标的元素的key等不等于要获取的key，如果等于直接返回。否则往后一直遍历，遍历过程中会将key为null的value置为null。如果在遍历的过程中遇到空的entry则说明无此元素，返回null</p>
+<p><img src="/%E9%9D%A2%E8%AF%95%E9%A2%98.assets/image-20210813204034750.png" alt="image-20210813204034750"></p>
+<h3 id="内存泄露"><a href="#内存泄露" class="headerlink" title="内存泄露"></a>内存泄露</h3><p>ThreadLocalMap的Entry中，<strong>key是弱引用</strong>，因为ThreadLocalMap容易造成内存泄露。即ThreadLocal对象被置为null，但value还是存在的，虽然key的空间被回收了，但value一直被强引用引用着。</p>
+<p>虽然ThreadLocalMap在每个方法中都会检测key为null，然后把value也变成null，但是还有会有检漏情况出现。</p>
+<p><strong>避免内存泄露</strong>的办法只有一种，就是手动调用ThreadLocalMap的<strong>remove方法</strong>，将整个entry删掉。</p>
+<p><strong>remove方法解决内存泄露的原理就是把key跟value都变成null</strong>。</p>
+<blockquote>
+<p>为什么要把key变成弱引用?</p>
+<p>key为null时才可回收key空间，不然连key空间都不会回收。</p>
+</blockquote>
+<h1 id="Java-Web"><a href="#Java-Web" class="headerlink" title="Java Web"></a>Java Web</h1><h2 id="请你说说，cookie-和-session-的区别？"><a href="#请你说说，cookie-和-session-的区别？" class="headerlink" title="请你说说，cookie 和 session 的区别？"></a>请你说说，cookie 和 session 的区别？</h2><ol>
+<li>存放位置不同。cookie数据存放在客户的浏览器上，session数据放在服务器上。</li>
+<li>数据大小不同。单个cookie保存的数据不能超过4K，而session没有限制。</li>
+<li>数据类型不同。cookie中只能保管ASCII字符串。而session中能够存储任何类型的数据。</li>
+<li>cookie对客户端是可见的，用户可以通过设置cookie来进行伪装，但session不行。</li>
+<li>服务器资源。cookie保管在客户端，不占用服务器资源。session是保管在服务器端的，每个用户都会产生一个session。假如并发访问的用户很多，会产生很多的session，耗费大量的内存。</li>
+</ol>
+<h2 id="如果用户将浏览器的cookie禁用-session还能使用吗-为什么"><a href="#如果用户将浏览器的cookie禁用-session还能使用吗-为什么" class="headerlink" title="如果用户将浏览器的cookie禁用,session还能使用吗?为什么?"></a>如果用户将浏览器的cookie禁用,session还能使用吗?为什么?</h2><p>不能使用. 因为session是使用sessionid进行身份认证的，而cookie存储着sessionid。</p>
+<h1 id="计算机组成原理"><a href="#计算机组成原理" class="headerlink" title="计算机组成原理"></a>计算机组成原理</h1><h2 id="ieee754"><a href="#ieee754" class="headerlink" title="ieee754"></a>ieee754</h2><p>在计算机中，通常采用ieee754来存储浮点数，存储格式如下：</p>
+<p><img src="/%E9%9D%A2%E8%AF%95%E9%A2%98.assets/image-20210804141443401.png" alt="image-20210804141443401"></p>
+<p>公式为：**$m_s$M × $2^{E}$** , 【注意】M其实是1.M，因为第一位肯定是1，所以省略。</p>
+<ul>
+<li><code>移码 = 真值 + 偏置值</code> </li>
+</ul>
+<p><img src="/%E9%9D%A2%E8%AF%95%E9%A2%98.assets/image-20210804141722851.png" alt="image-20210804141722851"></p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 为什么要使用移码表示阶码？将阶码都变成正数，可以方便浮点数在进行加减运算时的对阶操作。</li>
+</ul>
+<h3 id="为什么浮点数精度会丢失？"><a href="#为什么浮点数精度会丢失？" class="headerlink" title="为什么浮点数精度会丢失？"></a>为什么浮点数精度会丢失？</h3><p>因为计算机表示浮点数时，尾数部分决定了浮点数的精度，而<strong>尾数部分的位数是固定的</strong>，超出了位数的值会按某种规定舍去，所以会出现<strong>精度丢失或溢出</strong>的问题。</p>
+<h1 id="场景题"><a href="#场景题" class="headerlink" title="场景题"></a>场景题</h1><h2 id="从大数据量的找出出现次数最多的，或者前多少大-小的"><a href="#从大数据量的找出出现次数最多的，或者前多少大-小的" class="headerlink" title="从大数据量的找出出现次数最多的，或者前多少大/小的"></a>从大数据量的找出出现次数最多的，或者前多少大/小的</h2><p><strong>问题</strong>：</p>
+<ol>
+<li>假设有1kw个身份证号，以及他们对应的数据。身份证号可能重复，要求找出出现次数最多的前100个身份证号。</li>
+<li>怎么在海量数据中找出重复次数最多的一个</li>
+<li>有一个1G大小的一个文件，里面每一行是一个词，词的大小不超过16字节，内存限制大小是1M。返回频数最高的100个词。</li>
+</ol>
+<p><strong>解题思路</strong>：都是采用分支然后归并的方法。</p>
+<ol>
+<li>对数据取hash值然后除以一个数n取模，然后将数据分到n个小文件中</li>
+<li>对于每个小文件，可以把 数据 作为key，出现次数作为value 存入 hashMap中。</li>
+<li>分别对这些小文件进行处理，如排序，取出次数最多的</li>
+<li>合并所有的小文件，得出结果</li>
+</ol>
+<hr>
+<p>比如第一题</p>
+<ol>
+<li>hash(身份证号)%1000，将身份证号存储到1000个小文件中，每个小文件就只有1w条的数据</li>
+<li>对于每个小文件，把身份证作为key，出现次数作为value存入hashMap中。</li>
+<li>然后读取每个文件hashMap的次数最多的前100个身份证号使用归并排序存入到一个文件中。</li>
+<li>然后读取每个文件出现次数最多的前100个身份证。</li>
+</ol>
+<h2 id="JWT生成token有几个部分"><a href="#JWT生成token有几个部分" class="headerlink" title="JWT生成token有几个部分"></a>JWT生成token有几个部分</h2><p>JWT是 JSON Web Token的缩写，是一种安全的规范，使用JWT可以让我们在用户端和服务端建立一种可靠的通信保障。</p>
+<p>JWT有三个部分组成：</p>
+<ol>
+<li><strong>header</strong>：描述JWT的元数据，定义了生成签名的算法以及token的类型<ul>
+<li>这里指定为RSA256非对称加密算法，类型默认是jwt</li>
+</ul>
+</li>
+<li><strong>payload</strong>：负载，用来存放要传递的数据，比如用户的基本信息和token过期时间</li>
+<li><strong>signature</strong>：签名，使用 密钥和指定的算法 对header和payload进行签名。</li>
+</ol>
+<p>token验证流程：</p>
+<ol>
+<li>用户登录时后端返回一个token，前端将其保存在sessionstroage中</li>
+<li>前端每次请求中携带token字段，该字段中携带token信息</li>
+<li>后端拦截器拦截请求后验证token字段<ul>
+<li>公钥对签名解密，解密出来的header和payload的信息是否和传过来的一致。</li>
+</ul>
+</li>
+</ol>
+<h2 id="IP地址转为uint64存储与解析"><a href="#IP地址转为uint64存储与解析" class="headerlink" title="IP地址转为uint64存储与解析"></a>IP地址转为uint64存储与解析</h2><h3 id="数据库存储IP地址"><a href="#数据库存储IP地址" class="headerlink" title="数据库存储IP地址"></a>数据库存储IP地址</h3><p>当Mysql存储<code>IPv4</code>地址时，应该使用32位的无符号整数（<code>UNSIGNED INT</code>）来存储<code>IP</code>地址，而不是使用字符串。</p>
+<p>通常，在保存<code>IPv4</code>地址时，一个<code>IPv4</code>最小需要7个字符，最大需要15个字符，所以，使用<code>VARCHAR(15)</code>即可。<code>MySQL</code>在保存变长的字符串时，还需要额外的一个字节来保存此字符串的长度。而如果使用无符号整数来存储，只需要4个字节即可。</p>
+<p>相对字符串存储，使用无符号整数来存储有如下的好处：</p>
+<ul>
+<li><strong>节省空间</strong>，不管是数据存储空间，还是索引存储空间</li>
+<li>便于使用<strong>范围查询</strong>（<code>BETWEEN...AND</code>），且效率更高</li>
+</ul>
+<p>使用无符号整数来存储也有缺点：</p>
+<ul>
+<li>不便于阅读</li>
+<li>需要手动转换</li>
+</ul>
+<p>但对于转换来说，MySQL提供了相应的函数来把字符串格式的IPv4转换成整数<code>INET_ATON</code>，以及把整数格式的IP转换成字符串的<code>INET_NTOA</code>。如下所示：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> inet_aton(<span class="string">&#x27;192.168.0.1&#x27;</span>) <span class="keyword">as</span> ip;</span><br><span class="line"><span class="operator">+</span><span class="comment">-------------------------+</span></span><br><span class="line"><span class="operator">|</span> ip                                   <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-------------------------+</span></span><br><span class="line"><span class="operator">|</span>  <span class="number">3232235521</span>                 <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-------------------------+</span></span><br><span class="line"><span class="number">1</span> <span class="type">row</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> inet_ntoa(<span class="number">3232235521</span>) <span class="keyword">as</span> ip; </span><br><span class="line"><span class="operator">+</span><span class="comment">------------------------+</span></span><br><span class="line"><span class="operator">|</span> ip                                 <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------------------------+</span></span><br><span class="line"><span class="operator">|</span> <span class="number">192.168</span><span class="number">.0</span><span class="number">.1</span>                  <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------------------------+</span></span><br><span class="line"><span class="number">1</span> <span class="type">row</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="java层面转换IP地址"><a href="#java层面转换IP地址" class="headerlink" title="java层面转换IP地址"></a>java层面转换IP地址</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IpLongUtils</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 把字符串IP转换成long</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> ipStr 字符串IP</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> IP对应的long值</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">long</span> <span class="title">ip2Long</span><span class="params">(String ipStr)</span> </span>&#123;</span><br><span class="line">        String[] ip = ipStr.split(<span class="string">&quot;\\.&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> (Long.valueOf(ip[<span class="number">0</span>]) &lt;&lt; <span class="number">24</span>) + (Long.valueOf(ip[<span class="number">1</span>]) &lt;&lt; <span class="number">16</span>)</span><br><span class="line">                + (Long.valueOf(ip[<span class="number">2</span>]) &lt;&lt; <span class="number">8</span>) + Long.valueOf(ip[<span class="number">3</span>]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 把IP的long值转换成字符串</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> ipLong IP的long值</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> long值对应的字符串</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">long2Ip</span><span class="params">(<span class="keyword">long</span> ipLong)</span> </span>&#123;</span><br><span class="line">        StringBuilder ip = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        ip.append(ipLong &gt;&gt;&gt; <span class="number">24</span>).append(<span class="string">&quot;.&quot;</span>);</span><br><span class="line">        <span class="comment">// 每次取最低的8位</span></span><br><span class="line">        ip.append((ipLong &gt;&gt;&gt; <span class="number">16</span>) &amp; <span class="number">0xFF</span>).append(<span class="string">&quot;.&quot;</span>);</span><br><span class="line">        ip.append((ipLong &gt;&gt;&gt; <span class="number">8</span>) &amp; <span class="number">0xFF</span>).append(<span class="string">&quot;.&quot;</span>);</span><br><span class="line">        ip.append(ipLong &amp; <span class="number">0xFF</span>);</span><br><span class="line">        <span class="keyword">return</span> ip.toString();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(ip2Long(<span class="string">&quot;192.168.0.1&quot;</span>));  <span class="comment">// 3232235521</span></span><br><span class="line">        System.out.println(long2Ip(<span class="number">3232235521L</span>));  <span class="comment">// 192.168.0.1</span></span><br><span class="line">        System.out.println(ip2Long(<span class="string">&quot;10.0.0.1&quot;</span>));  <span class="comment">// 167772161</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="单点登录协议"><a href="#单点登录协议" class="headerlink" title="单点登录协议"></a>单点登录协议</h1><p>单点登录（SSO）协议有：CAS、OAuth2.0；</p>
+<blockquote>
+<p>在大项目中通常会把认证跟资源分开，即有 认证服务器 和 资源服务器。</p>
+</blockquote>
+<h2 id="CAS-1"><a href="#CAS-1" class="headerlink" title="CAS"></a>CAS</h2><p>CAS 全称 <code>Central Authentication Service</code>，是一种常见的B/S架构的SSO协议，用户仅需登陆一次，访问其他应用则无需再次登陆。<strong>该协议偏向于认证</strong>。</p>
+<p>CAS的认证流程通过包括三部分参与者:</p>
+<ul>
+<li><strong>Client</strong>: 通常为使用浏览器的用户</li>
+<li><strong>CAS Client</strong>: 资源服务器（可以多个）</li>
+<li><strong>CAS Server</strong>: 认证服务器（只有一个）</li>
+</ul>
+<p>认证流程如下：</p>
+<ol>
+<li>用户向CAS Client发起资源访问，如果用户还未登录，则CAS Client会把请求重定向到CAS Server，CAS Server返回登录界面</li>
+<li>用户输入账号密码之后发送给CAS Server，CAS Server验证用户信息，如果通过则向用户返回一个<strong>Service Ticket</strong>。</li>
+<li>此后用户每次访问CAS Client都携带着Service Ticket</li>
+<li>CAS Client收到Service Ticket后，去CAS Server认证该Service Ticket是否有效，有效就返回资源。</li>
+</ol>
+<h2 id="OAuth"><a href="#OAuth" class="headerlink" title="OAuth"></a>OAuth</h2><blockquote>
+<p>CAS协议通常是指 同个平台中的不同应用之间的身份认证。</p>
+<p>而OAuth协议是 一个平台的某个应用去授权访问给第三方应用的用户信息。</p>
+</blockquote>
+<p>OAuth, 通常是指OAuth 2.0协议，<strong>OAuth 2.0解决的主要场景是: 第三方应用如何被授权访问资源服务器</strong>。</p>
+<p>整个流程参与者包括四个组成部分:（比如利用微信登录牛客）</p>
+<ul>
+<li><strong>Resource Owner</strong>: 资源拥有者，通常为终端用户</li>
+<li><strong>Resource Server</strong>: 资源提供者，在这里为 牛客</li>
+<li><strong>Authorization Server</strong>: 授权服务器，验证用户信息。在这里为微信的授权服务器</li>
+<li><strong>Client</strong>: 第三方应用，也叫客户端。在这里为 微信</li>
+</ul>
+<p>认证流程如下：</p>
+<ol>
+<li>用户利用client第三方应用进行登录，Authorization Server返回登录页面。</li>
+<li>用户登录第三方应用之后，Authorization Server会返回 access_token给Resource Server</li>
+<li>Resource Server拿着 access_token访问第三方应用，第三方验证access_token之后返回该用户信息</li>
+<li>Resource Server展示用户信息</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/1a0c.html" rel="prev" title="RPG3D">
+      <i class="fa fa-chevron-left"></i> RPG3D
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9D%A2%E8%AF%95%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">面试题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java-SE"><span class="nav-number">2.</span> <span class="nav-text">Java SE</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%89%B9%E6%80%A7"><span class="nav-number">2.1.</span> <span class="nav-text">面向对象的特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%92%8Cequals"><span class="nav-number">2.2.</span> <span class="nav-text">&#x3D;&#x3D;和equals</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%87%8D%E5%86%99equals%E8%BF%98%E8%A6%81%E9%87%8D%E5%86%99hashcode%EF%BC%9F"><span class="nav-number">2.3.</span> <span class="nav-text">为什么重写equals还要重写hashcode？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#final%E7%94%A8%E6%B3%95"><span class="nav-number">2.4.</span> <span class="nav-text">final用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8D%E5%86%99%E8%B7%9F%E9%87%8D%E8%BD%BD%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">2.5.</span> <span class="nav-text">重写跟重载的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String%E3%80%81StringBuffer%E8%B7%9FStringBuilder"><span class="nav-number">2.6.</span> <span class="nav-text">String、StringBuffer跟StringBuilder</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E4%BA%8ECPU%E6%9D%A5%E8%AF%B4%EF%BC%8C%E6%95%B0%E7%BB%84%E5%AF%B9%E4%BA%8E%E9%93%BE%E8%A1%A8%E7%9A%84%E4%BC%98%E5%8A%BF"><span class="nav-number">2.7.</span> <span class="nav-text">对于CPU来说，数组对于链表的优势</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Object%E8%B7%9F%E6%B3%9B%E5%9E%8B%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">2.8.</span> <span class="nav-text">Object跟泛型的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95"><span class="nav-number">2.9.</span> <span class="nav-text">排序算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CAS"><span class="nav-number">2.10.</span> <span class="nav-text">CAS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ABA%E9%97%AE%E9%A2%98"><span class="nav-number">2.10.1.</span> <span class="nav-text">ABA问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Error%E5%92%8CException%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">2.11.</span> <span class="nav-text">Error和Exception的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hashmap"><span class="nav-number">2.12.</span> <span class="nav-text">hashmap</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E8%A6%81%E5%B1%9E%E6%80%A7"><span class="nav-number">2.12.1.</span> <span class="nav-text">重要属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#put%E6%93%8D%E4%BD%9C"><span class="nav-number">2.12.2.</span> <span class="nav-text">put操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%A9%E5%AE%B9%E6%93%8D%E4%BD%9C"><span class="nav-number">2.12.3.</span> <span class="nav-text">扩容操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-7%E5%92%8C1-8%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">2.12.4.</span> <span class="nav-text">1.7和1.8的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ConcurrentHashMap"><span class="nav-number">2.13.</span> <span class="nav-text">ConcurrentHashMap</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84"><span class="nav-number">2.13.1.</span> <span class="nav-text">存储结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E8%A6%81%E5%B1%9E%E6%80%A7-1"><span class="nav-number">2.13.2.</span> <span class="nav-text">重要属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-%E8%8A%82%E7%82%B9%E7%9A%84-hash-%E5%80%BC%E6%9C%89%E5%87%A0%E7%A7%8D%E6%83%85%E5%86%B5%EF%BC%9F"><span class="nav-number">2.13.3.</span> <span class="nav-text">Node 节点的 hash 值有几种情况？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ConcurrentHashMap%E4%B8%AD%E7%9A%84hash%E5%AF%BB%E5%9D%80%E7%AE%97%E6%B3%95"><span class="nav-number">2.13.4.</span> <span class="nav-text">ConcurrentHashMap中的hash寻址算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">2.13.5.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E5%85%83%E7%B4%A0"><span class="nav-number">2.13.6.</span> <span class="nav-text">插入元素</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ThreadLocal"><span class="nav-number">2.14.</span> <span class="nav-text">ThreadLocal</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%82%A8%E5%AD%98%E7%BB%93%E6%9E%84"><span class="nav-number">2.14.1.</span> <span class="nav-text">储存结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E6%96%B9%E6%B3%95"><span class="nav-number">2.14.2.</span> <span class="nav-text">初始化方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#set%E6%96%B9%E6%B3%95"><span class="nav-number">2.14.3.</span> <span class="nav-text">set方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#get%E6%96%B9%E6%B3%95"><span class="nav-number">2.14.4.</span> <span class="nav-text">get方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2"><span class="nav-number">2.14.5.</span> <span class="nav-text">内存泄露</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java-Web"><span class="nav-number">3.</span> <span class="nav-text">Java Web</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E8%AF%B4%E8%AF%B4%EF%BC%8Ccookie-%E5%92%8C-session-%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">3.1.</span> <span class="nav-text">请你说说，cookie 和 session 的区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E7%94%A8%E6%88%B7%E5%B0%86%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84cookie%E7%A6%81%E7%94%A8-session%E8%BF%98%E8%83%BD%E4%BD%BF%E7%94%A8%E5%90%97-%E4%B8%BA%E4%BB%80%E4%B9%88"><span class="nav-number">3.2.</span> <span class="nav-text">如果用户将浏览器的cookie禁用,session还能使用吗?为什么?</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86"><span class="nav-number">4.</span> <span class="nav-text">计算机组成原理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ieee754"><span class="nav-number">4.1.</span> <span class="nav-text">ieee754</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E6%B5%AE%E7%82%B9%E6%95%B0%E7%B2%BE%E5%BA%A6%E4%BC%9A%E4%B8%A2%E5%A4%B1%EF%BC%9F"><span class="nav-number">4.1.1.</span> <span class="nav-text">为什么浮点数精度会丢失？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9C%BA%E6%99%AF%E9%A2%98"><span class="nav-number">5.</span> <span class="nav-text">场景题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8E%E5%A4%A7%E6%95%B0%E6%8D%AE%E9%87%8F%E7%9A%84%E6%89%BE%E5%87%BA%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%E6%9C%80%E5%A4%9A%E7%9A%84%EF%BC%8C%E6%88%96%E8%80%85%E5%89%8D%E5%A4%9A%E5%B0%91%E5%A4%A7-%E5%B0%8F%E7%9A%84"><span class="nav-number">5.1.</span> <span class="nav-text">从大数据量的找出出现次数最多的，或者前多少大&#x2F;小的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JWT%E7%94%9F%E6%88%90token%E6%9C%89%E5%87%A0%E4%B8%AA%E9%83%A8%E5%88%86"><span class="nav-number">5.2.</span> <span class="nav-text">JWT生成token有几个部分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IP%E5%9C%B0%E5%9D%80%E8%BD%AC%E4%B8%BAuint64%E5%AD%98%E5%82%A8%E4%B8%8E%E8%A7%A3%E6%9E%90"><span class="nav-number">5.3.</span> <span class="nav-text">IP地址转为uint64存储与解析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%98%E5%82%A8IP%E5%9C%B0%E5%9D%80"><span class="nav-number">5.3.1.</span> <span class="nav-text">数据库存储IP地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java%E5%B1%82%E9%9D%A2%E8%BD%AC%E6%8D%A2IP%E5%9C%B0%E5%9D%80"><span class="nav-number">5.3.2.</span> <span class="nav-text">java层面转换IP地址</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95%E5%8D%8F%E8%AE%AE"><span class="nav-number">6.</span> <span class="nav-text">单点登录协议</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CAS-1"><span class="nav-number">6.1.</span> <span class="nav-text">CAS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OAuth"><span class="nav-number">6.2.</span> <span class="nav-text">OAuth</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="烟却"
+      src="/images/alice.png">
+  <p class="site-author-name" itemprop="name">烟却</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ZHdovk" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ZHdovk" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/xanszho@163.com" title="E-Mail → xanszho@163.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">烟却</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
